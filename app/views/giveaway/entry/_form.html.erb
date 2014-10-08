@@ -1,0 +1,20 @@
+<%= simple_form_for form, url: contest_entries_url, :html=> { id: 'giveaway-form' }  do |f| %>
+
+<%= f.input :first_name, input_html: { autocapitalize: "words", autocorrect: "off" } %>
+<%= f.input :last_name, input_html: { autocapitalize: "words", autocorrect: "off" } %>
+<%= f.input :phone %>
+<%= f.input :email %>
+
+
+
+<%= f.input :daily_reminder, as: :boolean, label: "Please send me a daily reminder email to enter the contest", wrapper_html: {class: "reminder"} %>
+
+<%= f.input :daves_deals, as: :boolean, input_html: { checked: 'checked'}, label: "I'd like occasional <em>Dave's Deals</em> emails with special offers from Dave's online store"  %>
+<%= f.input :money_goals, as: :boolean, label: "Send me a reminder in January about the Baby Steps and setting money goals in 2015" %>
+
+<p class="error failure-message">We are sorry, but an error occurred while processing your request. Please try again later.</p>
+
+<%= f.submit 'Enter Giveaway!', :class => 'enter-giveaway' %>
+<p><em>By clicking Enter Now, you are agreeing to the <br/>
+  <%= link_to 'Terms & Conditions', conditions_url %>. Enter once a day. No purchase necessary.</em></p>
+<% end %>
